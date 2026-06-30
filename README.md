@@ -6,7 +6,7 @@ This project is structured as a professional-grade software repository, suitable
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 - **Multi-Algorithm Recommendation Engine**:
   - **Content-Based Filtering**: Recommends movies matching genres and tag overlays using TF-IDF Vectorization and Cosine Similarity.
@@ -28,7 +28,7 @@ This project is structured as a professional-grade software repository, suitable
 
 ---
 
-## 📂 Directory Structure
+## Directory Structure
 
 ```text
 movie-recommendation-system/
@@ -67,7 +67,7 @@ movie-recommendation-system/
 
 ---
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 
@@ -99,7 +99,7 @@ movie-recommendation-system/
 
 ---
 
-## 🧪 Running Automated Unit Tests
+## Running Automated Unit Tests
 
 Automated testing is implemented using `pytest` to verify the mathematical calculations, database read/writes, and text-based sentiment negations. Run tests with:
 ```bash
@@ -112,7 +112,7 @@ python -m pytest tests/test_recommendation.py
 
 ---
 
-## 📊 Core Algorithms Explained
+## Core Algorithms Explained
 
 ### 1. TF-IDF & Content Similarity
 For Content-Based filtering, we combine a movie's genres with any user-applied tags:
