@@ -111,28 +111,3 @@ python -m pytest tests/test_recommendation.py
 ```
 
 ---
-
-## Core Algorithms Explained
-
-### 1. TF-IDF & Content Similarity
-For Content-Based filtering, we combine a movie's genres with any user-applied tags:
-$$\text{Metadata} = \text{Genres} \cup \text{Tags}$$
-We compute TF-IDF vectors:
-$$\text{TF-IDF}(t, d) = \text{TF}(t, d) \times \text{IDF}(t)$$
-Cosine Similarity is computed to rank matching titles:
-$$\text{Similarity}(A, B) = \frac{A \cdot B}{\|A\| \|B\|}$$
-
-### 2. Vectorized Collaborative Rating Predictions
-- **Item-Based**: Predicts rating $P(u, i)$ by calculating similarity of candidate item $i$ with items $j$ rated by user $u$:
-  $$P(u, i) = \frac{\sum_{j \in R_u} \text{Similarity}(i, j) \cdot R(u, j)}{\sum_{j \in R_u} |\text{Similarity}(i, j)|}$$
-- **User-Based**: Predicts rating $P(u, i)$ by centering similar user ratings around user averages:
-  $$P(u, i) = \bar{R}_u + \frac{\sum_{v \in U_i} \text{Similarity}(u, v) \cdot (R(v, i) - \bar{R}_v)}{\sum_{v \in U_i} |\text{Similarity}(u, v)|}$$
-
-### 3. Hybrid Blending Blends
-$$\text{Hybrid Score} = w_{\text{content}} \cdot \text{NormalizedContentScore} + w_{\text{collab}} \cdot \text{NormalizedCollabScore}$$
-Weights are configurable in the UI, summing to $1.0$.
-
-### 4. Sentiment Boost Scale
-If sentiment adjustment is active:
-$$\text{Final Score} = \text{Hybrid Score} + (\mu_{\text{sentiment}} \times 0.15)$$
-where $\mu_{\text{sentiment}} \in [-1.0, 1.0]$ is the average review sentiment score.
